@@ -56,11 +56,21 @@ td {
 @media (max-width: 408px) {
     body {
         font-size: 7.5px;
-       
     }
     .container {
+       
         margin-left: -2%;
         
+    }
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        
+    }
+    .col-4{
+        flex: 0 0 auto;
+    width: 60%;
     }
     #circle {
         display: block;
@@ -84,8 +94,12 @@ td {
        
     }
     .container {
-        margin-left: -1%;
+        margin-left: -1.5%;
         
+    }
+    .col-4{
+        flex: 0 0 auto;
+    width: 60%;
     }
     #circle {
         display: block;
