@@ -6,8 +6,19 @@
     <title>Buscar número por nombre</title>
 </head>
 <body>
-    <!-- Input para ingresar el nombre -->
-    <input type="text" id="nombreInput" placeholder="Ingrese un nombre">
+    <!-- Cambiamos el input por un select con opciones -->
+    <select id="nombreSelect">
+        <option value="Elieth">Elieth</option>
+        <option value="Eusebio">Eusebio</option>
+        <option value="Yasmine">Yasmine</option>
+        <option value="Gilma">Gilma</option>
+        <option value="Darnis">Darnis</option>
+        <option value="Belkis">Belkis</option>
+        <option value="Sielva">Sielva</option>
+        <option value="Claudia">Claudia</option>
+        <option value="Disponible">Disponible</option>
+        <!-- Agrega más opciones según sea necesario -->
+    </select>
     <!-- Botón para realizar la búsqueda -->
     <button onclick="buscarNumerosPorNombre()">Buscar</button>
     <!-- Lista para mostrar los números -->
@@ -16,7 +27,8 @@
     <script>
         // Función para buscar los números por nombre
         function buscarNumerosPorNombre() {
-            const nombreInput = document.getElementById('nombreInput').value;
+            const nombreSelect = document.getElementById('nombreSelect');
+            const nombreInput = nombreSelect.value;
             const numerosLista = document.getElementById('numerosLista');
 
             // Limpiar la lista antes de realizar una nueva búsqueda
@@ -57,4 +69,3 @@
     </script>
 </body>
 </html>
-

@@ -54,7 +54,7 @@ td {
     border: 2px solid black;
 }
 
-@media (max-width: 408px) {
+@media (max-width: 600px) {
     body {
         font-size: 7.5px;
     }
@@ -88,8 +88,8 @@ td {
     }
 }
 
-/* Media query para pantallas de al menos 1024px de ancho */
-@media (min-width: 409px)  and (max-width:768px){
+
+@media (min-width: 601px)  and (max-width:868px){
     body {
         font-size: 16px;
        
