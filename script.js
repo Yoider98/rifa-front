@@ -16,14 +16,15 @@ fetch('https://rifa-back1.onrender.com/datos')
                         if (columnaActual === 0) {
                             const newRow = tabla.insertRow();
                         }
+                        
                         const cell = tabla.rows[filaActual].insertCell(columnaActual);
                         // Crea una nueva celda para cada dato
                         if (typeof item[1] === 'number' && item[1] >= 0 && item[1] <= 9) {
                           // Agregar un "0" delante del número
-                          cell.innerHTML = `0${item[1]}<br>${item[3]}`;
+                          cell.innerHTML = `0${item[1]}<br>${item[2]}`;
                         } else {
                           // De lo contrario, mostrar el número sin cambios
-                          cell.innerHTML = `${item[1]}<br> ${item[3]}`;
+                          cell.innerHTML = `${item[1]}<br> ${item[2]}`;
                         }
                         if(item[3] === "Disponible"){
                           cell.style.backgroundColor = "rgb(227, 223, 143)";
