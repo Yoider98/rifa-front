@@ -1,19 +1,103 @@
 body{
-    background-image: url(./fotoo.jpg);
+    background-color:#FDFAC1  ;
+    
+
 }
 table {
     border-collapse: collapse;
-    margin: 20px auto;
+  
+    
+}
+.container{
+    font-family: helvética;
+    margin-left: 20%;
+    position: relative;
+    display: inline-block;
+}
+.container table{
+    margin-top: 0%;
     
 }
 
+#circle {
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 620px;
+    background-image: url("./foto.jpg");
+    background-position: center center; /* Centra la imagen vertical y horizontalmente */
+    background-size: cover; /* Ajusta la imagen para cubrir completamente el círculo */
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    border: 5px solid rgb(143, 222, 227);
+}
+/*
+#circle1 {
+    display: block;
+    position: absolute;
+    top: 24px;
+    left: 620px;
+    background-image: url("./fotoo.jpg");
+    border-radius: 50%;
+    width: 170px;
+    height: 170px;
+    border: 5px solid blue;
+} */
+
 td {
     color: black;
-    width: 100px;
-    height: 60px;
     text-align: center;
     vertical-align: middle;
     font-weight: bold;
     border: 2px solid black;
 }
 
+@media (max-width: 408px) {
+    body {
+        font-size: 7.5px;
+       
+    }
+    .container {
+        margin-left: -2%;
+        
+    }
+    #circle {
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 280px;
+        background-image: url("./foto.jpg");
+        background-position: center center; /* Centra la imagen vertical y horizontalmente */
+        background-size: cover; /* Ajusta la imagen para cubrir completamente el círculo */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        border: 5px solid rgb(143, 222, 227);
+    }
+}
+
+/* Media query para pantallas de al menos 1024px de ancho */
+@media (min-width: 409px)  and (max-width:768px){
+    body {
+        font-size: 16px;
+       
+    }
+    .container {
+        margin-left: -1%;
+        
+    }
+    #circle {
+        display: block;
+        position: absolute;
+        top: -10px;
+        left: 540px;
+        background-image: url("./foto.jpg");
+        background-position: center center; /* Centra la imagen vertical y horizontalmente */
+        background-size: cover; /* Ajusta la imagen para cubrir completamente el círculo */
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        border: 5px solid rgb(143, 222, 227);
+    }
+}

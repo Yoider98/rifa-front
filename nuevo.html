@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar número por nombre</title>
+</head>
+<body>
+    <!-- Input para ingresar el nombre -->
+    <input type="text" id="nombreInput" placeholder="Ingrese un nombre">
+    <!-- Botón para realizar la búsqueda -->
+    <button onclick="buscarNumerosPorNombre()">Buscar</button>
+    <!-- Lista para mostrar los números -->
+    <ul id="numerosLista"></ul>
+
+    <script>
+        // Función para buscar los números por nombre
+        function buscarNumerosPorNombre() {
+            const nombreInput = document.getElementById('nombreInput').value;
+            const numerosLista = document.getElementById('numerosLista');
+
+            // Limpiar la lista antes de realizar una nueva búsqueda
+            numerosLista.innerHTML = '';
+
+            // Realizar una solicitud de búsqueda a la URL del JSON
+            fetch('https://rifa-back1.onrender.com/datos')
+                .then(response => response.json())
+                .then(data => {
+                    // Asegurarse de que los datos sean un objeto JSON con una propiedad "data"
+                    if (data && data.data && Array.isArray(data.data)) {
+                        const resultados = data.data.filter(item => item[3] === nombreInput);
+
+                        if (resultados.length > 0) {
+                            // Mostrar los números encontrados en la lista
+                            resultados.forEach(resultado => {
+                                const listItem = document.createElement('li');
+                                listItem.textContent = `Esta pago: ${resultado[4]}, Número: ${resultado[1]}`;
+                                numerosLista.appendChild(listItem);
+                            });
+                        } else {
+                            // Mostrar un mensaje si no se encontraron resultados
+                            const listItem = document.createElement('li');
+                            listItem.textContent = 'No se encontraron resultados';
+                            numerosLista.appendChild(listItem);
+                        }
+                    } else {
+                        // Mostrar un mensaje de error si los datos no tienen el formato esperado
+                        const listItem = document.createElement('li');
+                        listItem.textContent = 'Error: Datos no válidos';
+                        numerosLista.appendChild(listItem);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al obtener datos:', error);
+                });
+        }
+    </script>
+</body>
+</html>
+

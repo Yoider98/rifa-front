@@ -35,7 +35,7 @@ fetch('https://rifa-back1.onrender.com/datos')
                         
                     });
                 } else {
-                    console.error('Los datos recibidos no son una matriz válida:', data.data);
+                    console.error('Los datos recibidos no son un JSON válida:', data.data);
                 }
             })
             .catch(error => {
