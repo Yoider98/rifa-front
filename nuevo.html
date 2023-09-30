@@ -23,6 +23,7 @@
     <button onclick="buscarNumerosPorNombre()">Buscar</button>
     <!-- Lista para mostrar los números -->
     <ul id="numerosLista"></ul>
+    <div id="cuanto"></div>
 
     <script>
         // Función para buscar los números por nombre
@@ -41,13 +42,16 @@
                     // Asegurarse de que los datos sean un objeto JSON con una propiedad "data"
                     if (data && data.data && Array.isArray(data.data)) {
                         const resultados = data.data.filter(item => item[3] === nombreInput);
-
+                        const cuanto = document.createElement('cuantos');
                         if (resultados.length > 0) {
                             // Mostrar los números encontrados en la lista
                             resultados.forEach(resultado => {
                                 const listItem = document.createElement('li');
+                                
                                 listItem.textContent = `Esta pago: ${resultado[4]}, Número: ${resultado[1]}`;
+                                
                                 numerosLista.appendChild(listItem);
+                                
                             });
                         } else {
                             // Mostrar un mensaje si no se encontraron resultados
@@ -55,12 +59,20 @@
                             listItem.textContent = 'No se encontraron resultados';
                             numerosLista.appendChild(listItem);
                         }
+                        if(nombreInput === "Disponible") {
+                        cuanto.textContent = `Faltan por vender: ${resultados.length} `;
+                    numerosLista.appendChild(cuanto);
+                        }else{
+                            cuanto.textContent = `Ha vendido: ${resultados.length} `;
+                            numerosLista.appendChild(cuanto); 
+                        }
                     } else {
                         // Mostrar un mensaje de error si los datos no tienen el formato esperado
                         const listItem = document.createElement('li');
                         listItem.textContent = 'Error: Datos no válidos';
                         numerosLista.appendChild(listItem);
                     }
+                    
                 })
                 .catch(error => {
                     console.error('Error al obtener datos:', error);
