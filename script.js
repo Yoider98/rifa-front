@@ -1,11 +1,23 @@
+const spinner = document.getElementById('spinner');
+const text = document.getElementById('text');
+const tabla = document.getElementById('tabla');
+
+// Mostrar el spinner mientras se cargan los datos
+spinner.style.display = 'block';
+text.style.display = 'block';
+tabla.style.display = 'none';
+
+
+
 fetch('https://rifa-back1.onrender.com/datos')
             .then(response => response.json())
             .then(data => {
+              spinner.style.display = 'none';
+              text.style.display = 'none'; 
                 if (Array.isArray(data.data)) {
-                    const tabla = document.getElementById('tabla');
                     let filaActual = 0;
                     let columnaActual = 0;
-
+                    tabla.style.display = 'table';
                     data.data.forEach(item => {
                         if (columnaActual >= 10) {
                             filaActual++;

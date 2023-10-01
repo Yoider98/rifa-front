@@ -53,7 +53,18 @@ td {
     font-weight: bold;
     border: 2px solid black;
 }
+/* Estilos para el spinner */
+.spinner-border {
+    margin-top: 15%!important;
+    margin-left: 20%;
+    
+}
+.text{
+    color: black;
+    font-size: 20px;
+    margin-left: 10%;
 
+}
 @media (max-width: 600px) {
     body {
         font-size: 7.5px;
@@ -86,6 +97,12 @@ td {
         height: 120px;
         border: 5px solid rgb(143, 222, 227);
     }
+}
+
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 
